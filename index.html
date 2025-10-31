@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a192f">
+    <title>Cybersécurité | Mateo BRL</title>
+    <meta name="description" content="Étudiant en Master Cybersécurité passionné par la sécurité des systèmes et des données. Compétences en Blue Team, Red Team, OSINT et réseaux.">
+    <meta name="keywords" content="cybersécurité, sécurité informatique, OSINT, Blue Team, Red Team, étudiant, portfolio">
+    <meta name="author" content="Mateo BARIL">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cybersécurité | Mateo BRL">
+    <meta property="og:description" content="Étudiant en Master Cybersécurité - Portfolio et projets">
+
+    <!-- Preconnect pour optimiser le chargement -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+</head>
+<body>
+    <div class="matrix-background"></div>
+    
+    <header role="banner">
+        <div class="logo" aria-label="Logo CyberSec">
+            <i class="fas fa-shield-alt" aria-hidden="true"></i>
+            <span>CyberSec</span>
+        </div>
+        <nav role="navigation" aria-label="Navigation principale">
+            <button class="menu-toggle" aria-label="Ouvrir le menu principal" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-list" role="menubar">
+                <li role="none"><a href="#home" class="active" data-page="home" role="menuitem">Accueil</a></li>
+                <li role="none"><a href="https://portfolio.mateobrl.fr" target="_blank" rel="noopener noreferrer" role="menuitem">Portfolio</a></li>
+                <li role="none"><a href="#app" data-page="app" role="menuitem">App</a></li>
+                <li role="none"><a href="#contact" data-page="contact" role="menuitem">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main role="main">
+        <!-- Page d'accueil -->
+        <section id="home" class="page active" aria-labelledby="hero-title">
+            <div class="hero">
+                <h1 id="hero-title">Étudiant en <span class="highlight">Cybersécurité</span></h1>
+                <p>Fervent adepte de l'informatique, je me spécialise dans la sécurisation des données et des systèmes.</p>
+                <div class="cta-buttons">
+                    <a href="https://portfolio.mateobrl.fr" class="cta-button primary" target="_blank" rel="noopener noreferrer">Voir mon portfolio</a>
+                    <a href="#contact" class="cta-button secondary" data-target="contact">Me contacter</a>
+                </div>
+            </div>
+
+            <article class="about-container">
+                <div class="about-text">
+                    <h2>À propos de moi</h2>
+                    <p>Actuellement en Master Cybersécurité en alternance, je suis passionné par la sécurité des systèmes et des données. Mon parcours inclut un Bachelor SYSOPS et un BTS SIO, où j'ai acquis des compétences solides en administration de systèmes, réseaux et bases de données.</p>
+                    <p>Mon expérience professionnelle me permet de contribuer efficacement à la sécurité des infrastructures numériques. En dehors de mes études, je pratique la force athlétique, la musculation et les jeux vidéo, des activités qui renforcent ma discipline et mon esprit d'équipe.</p>
+                    <div class="skills" role="list" aria-label="Compétences">
+                        <span class="skill-tag" role="listitem">OSINT</span>
+                        <span class="skill-tag" role="listitem">Cybersécurité</span>
+                        <span class="skill-tag" role="listitem">Blue Team</span>
+                        <span class="skill-tag" role="listitem">Red Team</span>
+                        <span class="skill-tag" role="listitem">Réseau</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Page app -->
+        <section id="app" class="page" aria-labelledby="app-title">
+            <h1 id="app-title">Applications</h1>
+            <div class="app-container">
+                <article class="app-card">
+                    <i class="fas fa-dumbbell app-icon" aria-hidden="true"></i>
+                    <h3>Calculateur 1RM</h3>
+                    <p>Estimez votre force maximale en powerlifting</p>
+                    <a href="https://pr.mateobrl.fr/" class="cta-button primary" target="_blank" rel="noopener noreferrer">Essayer</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Page contact -->
+        <section id="contact" class="page" aria-labelledby="contact-title">
+            <h1 id="contact-title">Contact</h1>
+
+            <div class="contact-container-centered">
+                <div class="contact-info">
+                    <h2>Restons en contact</h2>
+                    <p>N'hésitez pas à me contacter pour toutes informations ou autres</p>
+
+                    <div class="contact-method">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <a href="mailto:mateo.baril@protonmail.com" class="contact-link">mateo.baril@protonmail.com</a>
+                    </div>
+
+                    <div class="social-links" role="list" aria-label="Réseaux sociaux">
+                        <a href="https://fr.linkedin.com/in/mat%C3%A9o-baril-223740258" aria-label="Profil LinkedIn" target="_blank" rel="noopener noreferrer" role="listitem">
+                            <i class="fab fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://github.com/mateo-brl" aria-label="Profil GitHub" target="_blank" rel="noopener noreferrer" role="listitem">
+                            <i class="fab fa-github" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer role="contentinfo">
+        <div class="footer-content">
+            <p>&copy; 2025 Mateo BARIL | Étudiant en Cybersécurité</p>
+            <p>Made by me & AI</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
