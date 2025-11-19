@@ -65,11 +65,13 @@ header {
     backdrop-filter: blur(8px);
     background-color: rgba(6, 19, 38, 0.8);
     transition: var(--transition);
+    border-bottom: 1px solid rgba(0, 255, 157, 0.1);
 }
 
 header.scrolled {
-    box-shadow: var(--shadow);
+    box-shadow: var(--shadow), 0 0 20px rgba(0, 255, 157, 0.2);
     padding: 1rem 1.5rem;
+    border-bottom: 1px solid rgba(0, 255, 157, 0.3);
 }
 
 .logo {
@@ -79,10 +81,28 @@ header.scrolled {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.8);
 }
 
 .logo i {
     font-size: 1.2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 /* Style pour le lien email dans contact */
@@ -206,8 +226,16 @@ main {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
 }
 
 h1 {
@@ -219,6 +247,28 @@ h1 {
 
 h1 .highlight {
     color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+    0%, 90%, 100% {
+        transform: translate(0);
+    }
+    92% {
+        transform: translate(-2px, 2px);
+    }
+    94% {
+        transform: translate(2px, -2px);
+    }
+    96% {
+        transform: translate(-2px, -2px);
+    }
+    98% {
+        transform: translate(2px, 2px);
+    }
 }
 
 /* Section Accueil */
@@ -257,27 +307,51 @@ h1 .highlight {
     font-weight: 600;
     transition: var(--transition);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--primary-color);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(0, 255, 157, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .cta-button.primary {
     background-color: var(--primary-color);
     color: var(--darker-color);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
 }
 
 .cta-button.primary:hover {
     background-color: transparent;
     color: var(--primary-color);
-    box-shadow: inset 0 0 0 2px var(--primary-color);
+    box-shadow: 0 0 30px rgba(0, 255, 157, 0.6), inset 0 0 20px rgba(0, 255, 157, 0.1);
+    transform: translateY(-2px);
 }
 
 .cta-button.secondary {
     background-color: transparent;
     color: var(--primary-color);
-    box-shadow: inset 0 0 0 2px var(--primary-color);
 }
 
 .cta-button.secondary:hover {
     background-color: rgba(0, 255, 157, 0.1);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+    transform: translateY(-2px);
 }
 
 .about-container {
@@ -288,12 +362,43 @@ h1 .highlight {
     border-radius: 8px;
     box-shadow: var(--shadow);
     backdrop-filter: blur(4px);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    border-radius: 8px;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(10px);
 }
 
 .about-text h2 {
     font-size: 1.8rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    box-shadow: 0 0 10px var(--primary-color);
 }
 
 .about-text p {
@@ -316,6 +421,32 @@ h1 .highlight {
     padding: 0.4rem 0.8rem;
     border-radius: 50px;
     display: inline-block;
+    border: 1px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.skill-tag:hover {
+    background: rgba(0, 255, 157, 0.2);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+    transform: translateY(-2px);
+}
+
+.skill-tag:hover::before {
+    left: 100%;
 }
 
 /* Section Portfolio */
@@ -389,17 +520,49 @@ h1 .highlight {
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
+    position: relative;
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.app-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    padding: 2px;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.app-card:hover::before {
+    opacity: 1;
 }
 
 .app-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 35px -15px rgba(0, 255, 157, 0.4);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px -15px rgba(0, 255, 157, 0.6), 0 0 30px rgba(0, 255, 157, 0.3);
 }
 
 .app-icon {
     font-size: 2.5rem;
     color: var(--primary-color);
     margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    filter: drop-shadow(0 0 10px var(--primary-color));
+}
+
+.app-card:hover .app-icon {
+    transform: rotateY(360deg) scale(1.1);
+    filter: drop-shadow(0 0 20px var(--primary-color));
 }
 
 .app-card h3 {
@@ -442,6 +605,30 @@ h1 .highlight {
     background: rgba(6, 19, 38, 0.5);
     border-radius: 8px;
     box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(0, 255, 157, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
 }
 
 .contact-info h2 {
@@ -459,6 +646,17 @@ h1 .highlight {
     display: flex;
     align-items: center;
     margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(0, 255, 157, 0.05);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-method:hover {
+    background: rgba(0, 255, 157, 0.1);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
 }
 
 .contact-method i {
@@ -466,6 +664,7 @@ h1 .highlight {
     font-size: 1.2rem;
     margin-right: 1rem;
     width: 20px;
+    filter: drop-shadow(0 0 5px var(--primary-color));
 }
 
 .social-links {
@@ -478,11 +677,37 @@ h1 .highlight {
     color: var(--gray-color);
     font-size: 1.5rem;
     transition: var(--transition);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+
+.social-links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    transform: scale(0);
+    transition: transform 0.3s;
 }
 
 .social-links a:hover {
     color: var(--primary-color);
-    transform: translateY(-5px);
+    transform: translateY(-5px) rotate(360deg);
+}
+
+.social-links a:hover::before {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(0, 255, 157, 0.6);
 }
 
 .contact-form {
